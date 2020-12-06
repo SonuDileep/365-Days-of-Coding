@@ -1,5 +1,5 @@
 
-// A Simple program which implements polymorphism, and inheritance
+// A Simple program which implements inheritance on 3 classes
 
 #include<iostream>
 #include<string>
