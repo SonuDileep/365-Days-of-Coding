@@ -1,3 +1,40 @@
-This page shares my best articles to read on topics like health, happiness, creativity, productivity and more. The central question that drives my work is, “How can we live better?” To answer that question, I like to write about science-based ways to solve practical problems.
+As part of the MIT Deep Learning series of lectures and GitHub tutorials, we are covering the basics of using neural networks to solve problems in computer vision, natural language processing, games, autonomous driving, robotics, and beyond.
 
-You’ll find interesting articles to read on topics like how to stop procrastinating as well as personal recommendations like my list of the best books to read and my minimalist travel guide. Ready to dive in? You can use the categories below to browse my best articles. So Let's just jump in.
+This blog post provides an overview of deep learning in 7 architectural paradigms with links to TensorFlow tutorials for each. It accompanies the following lecture on Deep Learning Basics as part of MIT course 6.S094:
+
+Deep learning is representation learning: the automated formation of useful representations from data. How we represent the world can make the complex appear simple both to us humans and to the machine learning models we build.
+
+My favorite example of the former is the publication in 1543 by Copernicus of the heliocentric model that put the Sun at the center of the “Universe” as opposed to the prior geocentric model that put the Earth at the center. At its best, deep learning allows us to automate this step, removing Copernicus (i.e., expert humans) from the “feature-engineering” process:
+Image for post
+Image for post
+Heliocentrism (1543) vs Geocentrism (6th century BC). Trajectory source.
+
+At a high-level, neural networks are either encoders, decoders, or a combination of both:
+
+    Encoders find patterns in raw data to form compact, useful representations.
+    Decoders generate high-resolution data from those representations. The generated data is either new examples or descriptive knowledge.
+
+The rest is clever methods that help us deal effectively with visual information, language, audio (#1–6) and even act in a world based on this information and occasional rewards (#7). Here’s the big picture view:
+Image for post
+Image for post
+
+In the following sections, I’ll briefly describe each of the 7 architectural paradigms with links to illustrative TensorFlow tutorials for each. See “Beyond the Basics” section at the end that discusses some exciting areas of deep learning that don’t cleanly fall into these seven categories.
+1. Feed Forward Neural Networks (FFNNs)
+Image for post
+Image for post
+
+FFNNs, with a history dating back to 1940s, are simply networks that don’t have any cycles. Data passes from input to output in a single pass without any “state memory” of what came before. Technically, most networks in deep learning can be considered FFNNs, but usually “FFNN” refers to its simplest variant: a densely-connected multilayer perceptron (MLP).
+
+Dense encoders are used to map an already compact set of numbers on the input to a prediction: either a classification (discrete) or a regression (continuous).
+
+TensorFlow Tutorial: See part 1 of our Deep Learning Basics tutorial for an example of FFNNs used for Boston housing price prediction formulated as a regression problem:
+Image for post
+Image for post
+Error on the training and validation sets as the network learns.
+2. Convolutional Neural Networks (CNNs)
+Image for post
+Image for post
+
+CNNs (aka ConvNets) are feed forward neural networks that use a spatial-invariance trick to efficiently learn local patterns, most commonly, in images. Spatial-invariance means that a cat ear in the top left of the image has the same features as a cat ear in bottom right of the image. CNNs share weights across space to make the detection of cat ears and other patterns more efficient.
+
+Instead of using only densely-connected layers, they use convolutional layers (convolutional encoder). These networks are used for image classification, object detection, video action recognition, and any data that has some spatial invariance in its structure (e.g., speech audio).
