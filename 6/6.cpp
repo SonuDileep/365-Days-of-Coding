@@ -3,7 +3,7 @@ Breadth first search to find the path to destination
 */
 
 #include "Graph.h"
-#include<queue>
+#include <queue>
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -12,7 +12,7 @@ using namespace std;
 
 void print(vector<int> const &a) 
 {
-   cout << "The vector elements are : ";
+   cout << "Breadth First Traversal of the given graph is: ";
 
    for(int i=0; i < a.size(); i++)
    {
@@ -26,10 +26,14 @@ int bfs_search(vector<vector<int>> a, int s, int f)
     int current_vertex = s;
     vector<int> current_edges = a[s];
     vector<int> checked;
-    vector<int> q;
+    vector<int> q; //queue
+    vector<int> path;
+    vector<int> v1;
+    v1.push_back(s);
     path.push_back(s);
     int p;
-
+    v1.clear();
+    checked.push_back(s);
     for(int i=0; i < current_edges.size(); i++)
    {
        q.push_back(current_edges.at(i));
@@ -37,7 +41,8 @@ int bfs_search(vector<vector<int>> a, int s, int f)
 
    while (!q.empty()) 
    {
-        print(q);
+        //print(q);
+        //print(checked);
         if ((count(q.begin(), q.end(), f)))
        {
            cout<<"Destination Reached"<<endl;
@@ -55,7 +60,7 @@ int bfs_search(vector<vector<int>> a, int s, int f)
                     {   if (!(count(q.begin(), q.end(), current_edges.at(i))))
                     {   p = current_edges.at(i);
                         q.push_back(current_edges.at(i));
-                        path.push_back(p);
+                        
                     }                       
                     }
                     
